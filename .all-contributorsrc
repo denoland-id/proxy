@@ -1,0 +1,35 @@
+{
+  "projectName": "proxy",
+  "projectOwner": "denoland-id",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "grikomsn",
+      "name": "Griko Nibras",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/8220954?v=4",
+      "profile": "https://griko.id",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "ekaone",
+      "name": "Eka Prasetia",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/50127577?v=4",
+      "profile": "https://github.com/ekaone",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true
+}
