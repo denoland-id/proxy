@@ -1,12 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/x(/?.*)",
-      "destination": "/api/x"
-    },
-    {
       "source": "/(.*)",
-      "destination": "https://web.denoland.id/$1"
+      "destination": "/api/proxy"
     }
   ],
   "cleanUrls": true,
