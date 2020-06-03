@@ -1,6 +1,6 @@
 import {
-  FWD_REQUEST_HEADERS,
-  FWD_RESPONSE_HEADERS,
+  FILTER_REQUEST_HEADERS,
+  FILTER_RESPONSE_HEADERS,
   getBaseUrl,
   withHandleError,
 } from "../utils";
@@ -21,20 +21,20 @@ const handler: NowApiHandler = async (req, res) => {
     dest = `${baseUrl}${req.url}`;
   }
 
-  let headers = FWD_REQUEST_HEADERS.reduce((hs, h) => {
-    const value = req.headers[h];
-    return { ...hs, ...(value ? { [h]: req.headers[h] } : {}) };
-  }, {});
+  const headers: {} = Object.fromEntries(
+    Object.entries(req.headers).filter(([k]) => {
+      return !FILTER_REQUEST_HEADERS.some((h) => h == k);
+    }),
+  );
 
   const resp = await fetch(dest, { headers });
   const html = await resp.text();
 
-  for (const header of FWD_RESPONSE_HEADERS) {
-    const value = resp.headers.get(header);
-    if (value) {
-      res.setHeader(header, value);
+  resp.headers.forEach((v, k) => {
+    if (!FILTER_RESPONSE_HEADERS.some((h) => h == k)) {
+      res.setHeader(k, v);
     }
-  }
+  });
 
   res.status(resp.status).end(html);
 };

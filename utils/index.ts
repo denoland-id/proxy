@@ -7,18 +7,14 @@ export const BASE_URLS = {
   dev: "https://web-staging.denoland.id",
 };
 
-export const FWD_REQUEST_HEADERS = [
+export const FILTER_REQUEST_HEADERS = [
   //
-  "accept",
-  "cache-control",
+  "host",
 ];
 
-export const FWD_RESPONSE_HEADERS = [
-  "access-control-allow-origin",
-  "age",
-  "cache-control",
-  "content-disposition",
-  "content-type",
+export const FILTER_RESPONSE_HEADERS = [
+  //
+  "content-encoding",
 ];
 
 export const getBaseUrl = () => {
