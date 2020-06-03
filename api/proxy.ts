@@ -21,19 +21,22 @@ const handler: NowApiHandler = async (req, res) => {
     dest = `${baseUrl}${req.url}`;
   }
 
-  let headers = FWD_REQUEST_HEADERS.reduce(
-    (hs, h) => ({ ...hs, [h]: req.headers[h] }),
-    {},
-  );
+  let headers = FWD_REQUEST_HEADERS.reduce((hs, h) => {
+    const value = req.headers[h];
+    return { ...hs, ...(value ? { [h]: req.headers[h] } : {}) };
+  }, {});
 
   const resp = await fetch(dest, { headers });
   const html = await resp.text();
 
   for (const header of FWD_RESPONSE_HEADERS) {
-    res.setHeader(header, resp.headers.get(header));
+    const value = resp.headers.get(header);
+    if (value) {
+      res.setHeader(header, value);
+    }
   }
 
-  res.end(html);
+  res.status(resp.status).end(html);
 };
 
 export default withHandleError(handler);

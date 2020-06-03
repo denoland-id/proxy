@@ -8,24 +8,17 @@ export const BASE_URLS = {
 };
 
 export const FWD_REQUEST_HEADERS = [
-  "accept-encoding",
-  "accept-language",
+  //
   "accept",
   "cache-control",
-  "referer",
-  "upgrade-insecure-requests",
-  "user-agent",
 ];
 
 export const FWD_RESPONSE_HEADERS = [
-  "accept-ranges",
   "access-control-allow-origin",
   "age",
   "cache-control",
   "content-disposition",
   "content-type",
-  "etag",
-  "strict-transport-security",
 ];
 
 export const getBaseUrl = () => {
