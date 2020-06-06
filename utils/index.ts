@@ -1,10 +1,10 @@
 import { HandleError } from "../types";
 
 export const BASE_URLS = {
-  production: "https://web.denoland.id",
-  prod: "https://web.denoland.id",
-  development: "https://web-staging.denoland.id",
-  dev: "https://web-staging.denoland.id",
+  production: "https://web.denoland-id.now.sh",
+  prod: "https://web.denoland-id.now.sh",
+  development: "https://web-staging.denoland-id.now.sh",
+  dev: "https://web-staging.denoland-id.now.sh",
 };
 
 export const FILTER_REQUEST_HEADERS = [
@@ -18,7 +18,7 @@ export const FILTER_RESPONSE_HEADERS = [
 ];
 
 export const getBaseUrl = () => {
-  return process.env.PROXY_BASE_URL || BASE_URLS[process.env.NODE_ENV];
+  return BASE_URLS[process.env.NODE_ENV];
 };
 
 export const withHandleError: HandleError = (handler) => (req, res) => {
