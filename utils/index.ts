@@ -18,7 +18,7 @@ export const FILTER_RESPONSE_HEADERS = [
 ];
 
 export const getBaseUrl = () => {
-  return process.env.PROXY_BASE_URL || BASE_URLS[process.env.NODE_ENV];
+  return BASE_URLS[process.env.NODE_ENV];
 };
 
 export const withHandleError: HandleError = (handler) => (req, res) => {
