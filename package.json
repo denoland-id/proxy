@@ -9,21 +9,29 @@
     "format:index": "prettier --write \"*.{js,json,md}\"",
     "format:api": "prettier --write \"api/**/*.{js,ts}\"",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate",
-    "prepare": "yarn format"
+    "contributors:generate": "all-contributors generate"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.7",
-    "@vercel/node": "^1.6.1",
-    "all-contributors-cli": "^6.15.0",
+    "@vercel/node": "^1.7.2",
+    "all-contributors-cli": "^6.16.1",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "node-fetch": "^2.6.0",
     "prettier": "^2.0.5"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn contributors:generate && yarn prepare"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write"
+    ],
+    "api/**/*.{js,ts}": [
+      "prettier --write"
+    ]
   },
   "prettier": {
     "semi": true,
