@@ -11,8 +11,8 @@ import fetch from "node-fetch";
 const handler: NowApiHandler = async (req, res) => {
   const baseUrl = getBaseUrl();
 
-  const isHtml = req.headers.accept.indexOf("html") >= 0;
-  const isModulePath = /^\/x\/([a-z]+)(?:@(.+))?\/.*/.test(req.url);
+  const isHtml = req.headers.accept!.indexOf("html") >= 0;
+  const isModulePath = /^\/x\/([a-z]+)(?:@(.+))?\/.*/.test(req.url!);
 
   let dest: string;
   if (isModulePath && !isHtml) {

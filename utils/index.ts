@@ -18,6 +18,7 @@ export const FILTER_RESPONSE_HEADERS = [
 ];
 
 export const getBaseUrl = () => {
+  // @ts-ignore
   return BASE_URLS[process.env.NODE_ENV];
 };
 
